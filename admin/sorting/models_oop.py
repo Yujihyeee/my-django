@@ -109,14 +109,19 @@ class Contacts(object):
     def to_string(self):
         print(f'name is {self.name}, phone is {self.phone}, email is {self.email}, address is {self.address}.')
 
-    def set_contact() -> object:
-        return Contacts(input('name'), int(input('phone')), input('email'), input('address'))
+    @staticmethod
+    def set_contact(name, phone, email, address) -> object:
+        return Contacts(name, phone, email, address)
 
+    @staticmethod
     def get_contacts(ls):
         for i in ls:
             i.to_string()
+        return ls
 
+    @staticmethod
     def del_contact(ls, name):
         for i, v in enumerate(ls):
             if name == v.name:
                 del ls[i]
+        return ls
